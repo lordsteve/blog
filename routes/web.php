@@ -22,6 +22,6 @@ Route::get('/', function () {  //Answer call to root directory and start working
 
 Route::get('posts/{post}', function ($slug) {   //Answer call to posts directory, pass wildcard URI to "slug" variable, get to work
     return view('post', [   //display /views/post.blade.php
-        'post' => Post::find($slug)   //Using the Post model, find the correct post based on the "slug" variable to pass along to /view/posts.blade.php
+        'post' => Post::findOrFail($slug)   //Using the Post model, find the correct post based on the "slug" variable to pass along to /view/posts.blade.php
     ]);
-})->where('post', '[A-z_/-]+');  //Only do any of the above if the wildcard URI is composed of letters, underscores, and/or dashes
+});

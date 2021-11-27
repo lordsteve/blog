@@ -48,4 +48,12 @@ class Post
     {
         return static::all()->firstWhere('slug', $slug); //out of all the posts (defined above, line 31), display the first one where the "slug" metatag equals the given URI
     }
+    public static function findOrFail($slug)
+    {
+        $post = static::find($slug);
+        if (! $post) {
+            throw new ModelNotFoundException();
+        }
+        return $post;
+    }
 }
