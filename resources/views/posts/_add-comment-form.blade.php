@@ -1,24 +1,23 @@
 @auth
-    <x-panel>
-        <form method="POST" action="/post/{{ $post->slug }}/comments">
-            @csrf
+    <x-panel class="d-flex align-content-center flex-wrap">
 
-            <header class="flex items-center">
-                <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="" width="60"
-                    height="60" class="rounded-full">
-                <p class="ml-4">Say what you will...</p>
-            </header>
-            <div class="mt-6">
-                <textarea name="body" class="w-full txt-sm focus:outline-none focus:ring" cols="30"
-                    rows="10" placeholder="Say whatever you want" required></textarea>
-                @error('body')
-                    <span class="text-xs text-red-500">{{ $message }}</span>
-                @enderror
-            </div>
-            <div class="flex justify-end mt-6">
-                <x-submit-button>Post</x-submit-button>
-            </div>
-        </form>
+        <div class="float-left">
+            <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="" width="60" height="60" class="rounded-full">
+        </div>
+        <div x-data="{ sz: '1', sh : false }" class="d-flex  m-auto float-right justify-center" style="width:calc(100% - 66px)" @click.away="sz = 1, sh = false">
+            <form name="com" method="POST" action="/post/{{ $post->slug }}/comments">
+                @csrf
+                    <textarea name="body" class="txt-sm focus:outline-none" style="width:100%;resize:none" :rows="sz" @click="sz = 10, sh = true" placeholder="Say something I'm giving up on you" required x-transition @keyup.enter="document.com.submit()"></textarea>
+                    @error('body')
+                        <span class="text-xs text-red-500">{{ $message }}</span>
+                    @enderror
+                    <div style="clear: both;"></div>
+                    <div class="flex justify-end mt-6" x-show="sh">
+                        <x-submit-button>Post</x-submit-button>
+                    </div>
+            </form>
+        </div>
+        <div style="clear: both;"></div>
     </x-panel>
 @else
     <x-panel>

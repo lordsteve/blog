@@ -7,7 +7,8 @@
         </div>
         <div>
             <header class="mb-4">
-                <h3 class="font-bold">{{ $comment->author->username }}</h3>
+                <h3 class="font-bold inline">{{ $comment->author->name }}</h3>
+                <p class="text-xs text-gray-500">{{ '@' }}{{ $comment->author->username }}</p>
                 <p class="text-xs">
                     posted
                     <time>{{ $comment->created_at->format('F j, Y, g:i a') }}</time>
