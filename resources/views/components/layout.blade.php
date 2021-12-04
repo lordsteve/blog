@@ -29,6 +29,7 @@
                         @csrf
                         <button type="submit">Log Out</button>
                     </form>
+                    <div class="text-xs font-semibold uppercase ml-20"><a href="/admin/posts/create">New Post</a></div>
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="ml-6 text-xs font-bold uppercase">Log In</a>
