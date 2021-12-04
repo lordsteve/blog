@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'username' => 'lordsteve',
             'email' => 'live.remix@gmail.com',
             'email_verified_at' => now(),
-            'password' => '$2y$10$AtmP.eXcWgsSJRyc8G39lO2yvvbIkyGnPeLutQVbf9XkWX5UdDh8m',
+            'password' => 'admin',
             'remember_token' => Str::random(10),
         ]);
     }
