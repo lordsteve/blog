@@ -21,6 +21,7 @@ class PostFactory extends Factory
             'user_id' => $user->id,
             'category_id' => $cat->id,
             'title' => $this->faker->sentence,
+            'thumbnail' => $this->faker->imageUrl,
             'slug' => $this->faker->slug,
             'excerpt' => '<p>' . implode('<p></p>', $this->faker->paragraphs(2)) . '</p>',
             'body' => '<p>' . implode('<p></p>', $this->faker->paragraphs(6)) . '</p>',
