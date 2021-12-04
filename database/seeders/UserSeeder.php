@@ -21,7 +21,7 @@ class UserSeeder extends Seeder
             'username' => 'lordsteve',
             'email' => 'live.remix@gmail.com',
             'email_verified_at' => now(),
-            'password' => 'admin',
+            'password' => 'admin', //Looks like this gets hashed regardless
             'remember_token' => Str::random(10),
         ]);
     }
