@@ -6,7 +6,9 @@ use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Comment;
+use Hash;
 use Illuminate\Database\Seeder;
+use Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,5 +23,8 @@ class DatabaseSeeder extends Seeder
         Category::factory(4)->create();
         Post::factory(40)->create();
         Comment::factory(100)->create();
+        $this->call([
+            UserSeeder::class
+        ]);
     }
 }
