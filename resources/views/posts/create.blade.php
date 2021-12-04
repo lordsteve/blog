@@ -13,7 +13,7 @@
                 <x-form.field>
                     <x-form.label name="category" />
 
-                        <select name="category_id" id="category_id" class="rounded-md">
+                        <select name="category_id" id="category_id" class="bg-white border rounded-md">
                             @foreach (\App\Models\Category::all() as $category)
                                 <option value="{{ $category->id }}"
                                     {{ old('category_id') == $category->id ? 'selected' : '' }}>
