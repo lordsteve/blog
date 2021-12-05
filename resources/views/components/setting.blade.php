@@ -19,7 +19,7 @@
             </ul>
         </aside>
 
-        <main class="flex-1">
+        <main class="w-auto">
             <x-panel>
                 {{ $slot }}
             </x-panel>

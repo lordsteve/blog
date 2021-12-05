@@ -13,7 +13,7 @@ class AdminPostController extends Controller
     {
         return view('admin.posts.index', [
             'posts' => Post::latest()->filter(request(['search','category',
-            'author']))->paginate(6)->withQueryString()
+            'author']))->paginate(10)->withQueryString()
         ]);
     }
 
