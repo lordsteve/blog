@@ -24,22 +24,7 @@ class AdminPostController extends Controller
 
     public function store()
     {
-        $attributes = request();
-
-        $attributes['slug'] = Str::slug(request('title'));
-
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'required|image',
-            'slug' => ['required', Rule::unique('posts', 'slug')],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
-
-        $attributes['body'] = '<p>' . $attributes['body'] . '</p>';
-        $attributes['user_id'] = auth()->id();
-        $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
+        $attributes = $this->validateThePost();
 
         Post::create($attributes);
 
@@ -53,23 +38,11 @@ class AdminPostController extends Controller
 
     public function update(Post $post)
     {
-        $attributes = request();
+        $attributes = $this->validateThePost();
 
-        $attributes['slug'] = Str::slug(request('title'));
-
-        $attributes = request()->validate([
-            'title' => 'required',
-            'thumbnail' => 'image',
-            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post->id)],
-            'excerpt' => 'required',
-            'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
-        ]);
-
-        $attributes['user_id'] = auth()->id();
-        if (isset($attributes['thumbnail'])) {
+        if ($attributes['thumbnail'] ?? false) {
             $attributes['thumbnail'] = request()->file('thumbnail')->store('thumbnails');
-        };
+        }
 
         $post->update($attributes);
 
@@ -81,5 +54,27 @@ class AdminPostController extends Controller
         $post->delete();
 
         return back()->with('success', 'Post deleted.');
+    }
+
+    protected function validateThePost(?Post $post = null): array
+    {
+        $post ??= new Post();
+
+        $attributes = request();
+
+        $attributes['slug'] = Str::slug(request('title'));
+
+        $attributes = request()->validate([
+            'title' => 'required',
+            'thumbnail' => $post->exists ? ['image'] : ['required|image'],
+            'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post)],
+            'excerpt' => 'required',
+            'body' => 'required',
+            'category_id' => ['required', Rule::exists('categories', 'id')]
+        ]);
+
+        $attributes['user_id'] = auth()->id();
+
+        return $attributes;
     }
 }
