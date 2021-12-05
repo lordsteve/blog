@@ -31,6 +31,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Category whereUpdatedAt($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperCategory
  */
 	class IdeHelperCategory extends \Eloquent {}
 }
@@ -58,6 +59,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Comment whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Comment whereUserId($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperComment
  */
 	class IdeHelperComment extends \Eloquent {}
 }
@@ -98,6 +100,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Post whereUserId($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperPost
  */
 	class IdeHelperPost extends \Eloquent {}
 }
@@ -135,6 +138,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUpdatedAt($value)
  * @method static \Illuminate\Database\Eloquent\Builder|User whereUsername($value)
  * @mixin \Eloquent
+ * @mixin IdeHelperUser
  */
 	class IdeHelperUser extends \Eloquent {}
 }
