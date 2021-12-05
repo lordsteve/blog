@@ -8,7 +8,7 @@
             placeholder="{{ $placeholder }}"
             rows="{{ $rows }}"
             required>
-            {{ old('$name') }}
+            {{ $slot ?? old('$name') }}
         </textarea>
     <x-form.error name="{{ $name }}" />
 </x-form.field>
