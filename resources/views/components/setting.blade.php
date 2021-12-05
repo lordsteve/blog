@@ -14,12 +14,13 @@
                     <a href="/admin/posts" class="{{ request()->is('admin/posts') ? 'text-blue-500' : '' }}">Manage Posts</a>
                 </li>
                 <li>
-                    <a href="/admin/posts/create" class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}">New Post</a>
+                    <a href="/admin/posts/create"
+                        class="{{ request()->is('admin/posts/create') ? 'text-blue-500' : '' }}">New Post</a>
                 </li>
             </ul>
         </aside>
 
-        <main class="w-auto">
+        <main class="flex-1">
             <x-panel>
                 {{ $slot }}
             </x-panel>
