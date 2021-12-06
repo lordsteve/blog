@@ -6,7 +6,7 @@
         <div x-data="{ sz: 1, sh : false }" class="flex-1 flex-shrink-0 ml-4 m-auto" @click.away="sz = 1, sh = false">
             <form name="com" method="POST" action="/post/{{ $post->slug }}/comments">
                 @csrf
-                <textarea class="txt-sm focus:outline-none w-full" name="body" :rows="sz"
+                <textarea style="resize:none;" class="txt-sm focus:outline-none w-full" name="body" :rows="sz"
                     placeholder="Go on! Leave a comment!" required @click="sz = 10, sh = true"
                     @keyup.enter.prevent="document.com.submit()"></textarea>
                 <x-form.error name='body' />
