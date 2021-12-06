@@ -3,7 +3,7 @@
         <div class="flex-shrink-0">
             <img src="https://i.pravatar.cc/100?u={{ auth()->id() }}" alt="" width="60" height="60" class="rounded-full">
         </div>
-        <div x-data="{ sz: '1', sh : false }" class="flex-1 flex-shrink-0 ml-4 m-auto" @click.away="sz = 1, sh = false">
+        <div x-data="{ sz: 1, sh : false }" class="flex-1 flex-shrink-0 ml-4 m-auto" @click.away="sz = 1, sh = false">
             <form name="com" method="POST" action="/post/{{ $post->slug }}/comments">
                 @csrf
                 <textarea class="txt-sm focus:outline-none w-full" name="body" :rows="sz"
@@ -16,7 +16,6 @@
                 </div>
             </form>
         </div>
-        <div style="clear: both;"></div>
     </x-panel>
 @else
     <x-panel>

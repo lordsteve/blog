@@ -26,5 +26,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class
         ]);
+        Post::factory(4)->create(['state' => 'draft']);
     }
 }

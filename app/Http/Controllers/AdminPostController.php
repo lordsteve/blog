@@ -24,11 +24,12 @@ class AdminPostController extends Controller
 
     public function store()
     {
-        $attributes = $this->validateThePost();
+        Post::create(array_merge($this->validateThePost(), [
+            'user_id' => request()->user()->id,
+            'thumbnail' => request()->file('thumbnail')->store('thumbnails')
+        ]));
 
-        Post::create($attributes);
-
-        return redirect("/posts/$attributes(['slug'])");
+        return redirect("/posts/" . request()->post('slug'))->with('success', 'Post saved!');
     }
 
     public function edit(Post $post)
@@ -66,11 +67,12 @@ class AdminPostController extends Controller
 
         $attributes = request()->validate([
             'title' => 'required',
-            'thumbnail' => $post->exists ? ['image'] : ['required|image'],
+            'thumbnail' => $post->exists ? ['image'] : ['required'],
             'slug' => ['required', Rule::unique('posts', 'slug')->ignore($post)],
             'excerpt' => 'required',
             'body' => 'required',
-            'category_id' => ['required', Rule::exists('categories', 'id')]
+            'category_id' => ['required', Rule::exists('categories', 'id')],
+            'state' => 'required'
         ]);
 
         $attributes['user_id'] = auth()->id();
