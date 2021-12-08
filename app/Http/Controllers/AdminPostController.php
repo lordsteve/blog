@@ -25,6 +25,10 @@ class AdminPostController extends Controller
 
     public function store()
     {   
+        request()->request->add([
+            'slug' => Str::slug(request()->request->get('title')) . '-' . hash('md5', date('c'))
+        ]);
+
         Post::create(array_merge($this->validateThePost(),  [
             'user_id' => request()->user()->id,
             'thumbnail' => request()->hasFile('thumbnail')
@@ -63,10 +67,6 @@ class AdminPostController extends Controller
     protected function validateThePost(?Post $post = null): array
     {   
         $post ??= new Post();
-
-        request()->request->add([
-            'slug' => Str::slug(request()->request->get('title')) . '-' . hash('md5', date('c'))
-        ]);
         
         return request()->validate([
             'title' => 'required',
