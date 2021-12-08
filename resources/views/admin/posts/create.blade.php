@@ -21,7 +21,6 @@
                     @error('category')
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
-            {{-- <input type="hidden" name="state" :value="st" /> --}}
             </x-form.field>
             <div class="flex">
                 <x-form.button name="state" value="pub">
