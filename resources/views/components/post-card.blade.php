@@ -14,6 +14,9 @@
                 </div>
 
                 <div class="mt-4">
+                    @admin
+                        <x-edit-button :id="$post->id" />
+                    @endadmin
                     <h1 class="text-3xl">
                         <a href="/posts/{{ $post->slug }}">
                             {{ $post->title }}

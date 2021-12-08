@@ -43,6 +43,10 @@
                         </div>
                     </div>
 
+                    @admin
+                        <x-edit-button :id="$post->id" />
+                    @endadmin
+
                     <h1 class="font-bold text-3xl lg:text-4xl mb-10">
                         {{ $post->title }}
                     </h1>
