@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Http\Request;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Validation\Rule;
@@ -62,6 +63,22 @@ class AdminPostController extends Controller
         $post->delete();
 
         return back()->with('success', 'Post deleted.');
+    }
+
+    public function draft(Post $post)
+    {
+        $data = request()->except(['_token', '_method']);
+        $post->update($data);
+
+        return back()->with('success', 'Your post has been unpublished');
+    }
+
+    public function pub(Post $post)
+    {
+        $data = request()->except(['_token', '_method']);
+        $post->update($data);
+
+        return back()->with('success', 'Your post has been published!');
     }
 
     protected function validateThePost(?Post $post = null): array

@@ -5,7 +5,7 @@
             @method('PATCH')
 
             <x-form.input name="title" :value="old('title', $post->title)" required />
-            <x-form.input name="slug" :value="old('title', $post->slug)" type="hidden">{{ $post->slug }}</x-fom.input>
+            <x-form.input name="slug" :value="old('title', $post->slug)" type="hidden"><p class="text-sm">{{ $post->slug }}</p></x-fom.input>
 
             <div class="flex">
                 <div class="flex-1 mr-4">
@@ -31,7 +31,7 @@
             </x-form.field>
 
             <x-form.button name="state" value="pub">
-                Update
+                Publish Update
             </x-form.button>
             <x-form.button name="state" value="draft" class="ml-4 bg-white text-gray-700 uppercase font-semibold text-xs py-2 px-10 rounded-2xl border border-gray-200 hover:bg-blue-100">
                 Save Draft

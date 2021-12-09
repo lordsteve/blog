@@ -21,6 +21,9 @@ Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
 
+Route::patch('admin/posts/{post}/draft', [AdminPostController::class, 'draft']);
+Route::patch('admin/posts/{post}/pub', [AdminPostController::class, 'pub']);
+
 Route::middleware('can:admin')->group(function () {
     Route::resource('admin/posts', AdminPostController::class)->except('show');
 });

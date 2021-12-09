@@ -1,6 +1,6 @@
 <x-layout>
     <x-setting heading="Manage Posts">
-        <div class="flex flex-col">
+        <div class="flex flex-col bg-white">
         <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -18,15 +18,27 @@
                             </div>
                         </div>
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 text-center">
                         @if ($post->state == 'pub')
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                            Published
-                        </span>
+                        
+                        <form action="/admin/posts/{{ $post->id }}/draft" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PATCH')
+
+                            <button type="submit" name="state" value="draft" id="{{ $post->id }}"
+                            class="pub px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 shadow"
+                            >Published</button>
+                        </form>
+
                         @elseif ($post->state == 'draft')
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">
+                        <form action="/admin/posts/{{ $post->id }}/pub" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                @method('PATCH')
+
+                            <button type="submit" name="state" value="pub" id="{{ $post->id }}" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 shadow">
                             Draft
-                        </span>
+                        </button>
+                        </form>
                         @endif
                     </td>
                     <td class="px-6 py-4 text-right text-sm font-medium">
@@ -34,12 +46,12 @@
                     </td>
                     </td>
                     <td class="px-6 py-4 text-right text-sm font-medium">
-                        <Form method="POST" action="/admin/posts/{{ $post->id }}">
+                        <form method="POST" action="/admin/posts/{{ $post->id }}">
                             @csrf
                             @method('DELETE')
 
                             <button class="text-xs color-gray-400">Delete</button>
-                        </Form>
+                        </form>
                     </td>
                     </tr>
                     @endforeach
