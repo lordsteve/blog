@@ -26,7 +26,15 @@
                                 @method('PATCH')
 
                             <button type="submit" name="state" value="draft" id="{{ $post->id }}"
-                            class="pub px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800 shadow"
+                                x-data="{ poked: false }"
+                                class="inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
+                                :class="poked
+                                    ? 'px-1 shadow-none'
+                                    : 'px-2 shadow'"
+                                x-on:touchstart="poked = true"
+                                x-on:touchend="poked = false"
+                                x-on:mousedown="poked = true"
+                                x-on:mouseup="poked = false"
                             >Published</button>
                         </form>
 
@@ -35,7 +43,16 @@
                                 @csrf
                                 @method('PATCH')
 
-                            <button type="submit" name="state" value="pub" id="{{ $post->id }}" class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800 shadow">
+                            <button type="submit" name="state" value="pub" id="{{ $post->id }}" 
+                                x-data="{ poked: false }"
+                                class="inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800"
+                                :class="poked
+                                    ? 'px-1 shadow-none'
+                                    : 'px-2 shadow'"
+                                x-on:touchstart="poked = true"
+                                x-on:touchend="poked = false"
+                                x-on:mousedown="poked = true"
+                                x-on:mouseup="poked = false">
                             Draft
                         </button>
                         </form>
