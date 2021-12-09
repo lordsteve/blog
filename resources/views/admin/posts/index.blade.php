@@ -19,44 +19,7 @@
                         </div>
                     </td>
                     <td class="px-6 py-4 text-center">
-                        @if ($post->state == 'pub')
-                        
-                        <form action="/admin/posts/{{ $post->id }}/draft" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('PATCH')
-
-                            <button type="submit" name="state" value="draft" id="{{ $post->id }}"
-                                x-data="{ poked: false }"
-                                class="inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800"
-                                :class="poked
-                                    ? 'px-1 shadow-none'
-                                    : 'px-2 shadow'"
-                                x-on:touchstart="poked = true"
-                                x-on:touchend="poked = false"
-                                x-on:mousedown="poked = true"
-                                x-on:mouseup="poked = false"
-                            >Published</button>
-                        </form>
-
-                        @elseif ($post->state == 'draft')
-                        <form action="/admin/posts/{{ $post->id }}/pub" method="POST" enctype="multipart/form-data">
-                                @csrf
-                                @method('PATCH')
-
-                            <button type="submit" name="state" value="pub" id="{{ $post->id }}" 
-                                x-data="{ poked: false }"
-                                class="inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800"
-                                :class="poked
-                                    ? 'px-1 shadow-none'
-                                    : 'px-2 shadow'"
-                                x-on:touchstart="poked = true"
-                                x-on:touchend="poked = false"
-                                x-on:mousedown="poked = true"
-                                x-on:mouseup="poked = false">
-                            Draft
-                        </button>
-                        </form>
-                        @endif
+                        <x-pubunpub-button :post="$post"/>
                     </td>
                     <td class="px-6 py-4 text-right text-sm font-medium">
                         <a href="/admin/posts/{{ $post->id }}/edit" class="text-blue-500 hover:text-blue-600">Edit</a>
