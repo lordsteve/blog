@@ -7,7 +7,7 @@
         @csrf
         @method('PATCH')
 
-    <button x-on:click.prevent="open =! open"
+    <button x-on:click.prevent="open = true"
         class="inline-flex text-xs leading-5 font-semibold rounded-full
             {{ $post->state == 'pub' ? 'bg-green-100 text-green-800' : (
                 $post->state == 'draft' ? 'bg-red-100 text-red-800' : 'bg-purple-100 text-purple-800')  }}"
