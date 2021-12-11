@@ -1,7 +1,7 @@
 @props(['post'])
 
 <article
-    {{ $attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl']); }}>
+    {{ $attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl hover:shadow-lg']); }}>
     <div class="py-6 px-5">
         <div>
             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="" class="rounded-xl">
@@ -43,9 +43,16 @@
                     </div>
                 </div>
 
-                <div style="width:130px">
+                <div style="width:130px" x-data="{ poked: false }">
                     <a href="/posts/{{ $post->slug }}"
-                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8"
+                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2"
+                        :class="poked
+                            ? 'px-7 shadow-none'
+                            : 'px-8 shadow-lg'"
+                        x-on:touchstart="poked = true"
+                        x-on:touchend="poked = false"
+                        x-on:mousedown="poked = true"
+                        x-on:mouseup="poked = false"
                     >Read More</a>
                 </div>
             </footer>
