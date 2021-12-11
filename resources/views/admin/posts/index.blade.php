@@ -26,12 +26,11 @@
                     </td>
                     </td>
                     <td class="px-6 py-4 text-right text-sm font-medium">
-                        <form method="POST" action="/admin/posts/{{ $post->id }}">
+                        <form method="POST" id="{{ 'delete' . $post->id }}" action="/admin/posts/{{ $post->id }}">
                             @csrf
                             @method('DELETE')
-
-                            <button class="text-xs color-gray-400">Delete</button>
                         </form>
+                        <a href="/admin/posts/{{ $post->id }}/alert" class="text-xs color-gray-400">Delete</a>
                     </td>
                     </tr>
                     @endforeach
@@ -42,5 +41,6 @@
         </div>
         </div>
         {{ $posts->links() }}
+
     </x-setting>
 </x-layout>

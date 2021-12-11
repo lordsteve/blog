@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\AlertController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 use App\Http\Controllers\PostController;
@@ -20,6 +21,10 @@ Route::get('register', [RegisterController::class, 'create'])->middleware('guest
 Route::get('login', [SessionsController::class, 'create'])->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->middleware('guest');
 Route::post('logout', [SessionsController::class, 'destroy'])->middleware('auth');
+
+Route::get('admin/posts/{post}/alert', [AlertController::class, 'delete']);
+Route::get('admin/posts/{post}/alert/pub', [AlertController::class, 'pub']);
+Route::get('admin/posts/{post}/alert/draft', [AlertController::class, 'draft']);
 
 Route::patch('admin/posts/{post}/draft', [AdminPostController::class, 'draft']);
 Route::patch('admin/posts/{post}/pub', [AdminPostController::class, 'pub']);

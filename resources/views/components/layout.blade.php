@@ -82,6 +82,7 @@
             @enderror
         </footer>
     </section>
+    <x-alert />
     <x-flash />
     {{-- Ah-aaaahh! --}}
 </body>
