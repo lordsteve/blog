@@ -23,17 +23,17 @@
                         </a>
                     </h1>
 
-                    <span class="mt-2 block text-gray-400 text-xs">
+                    <span class="block mt-2 text-xs text-gray-400">
                         Published <time>{{ $post->created_at->diffForHumans() }}</time>
                     </span>
                 </div>
             </header>
 
-            <div class="text-sm mt-4">
+            <div class="mt-4 text-sm">
                 {!! $post->excerpt !!}
             </div>
 
-            <footer class="flex justify-between items-center mt-8">
+            <footer class="flex items-center justify-between mt-8">
                 <div class="flex items-center text-sm">
                     <img src="/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-3">
@@ -45,7 +45,7 @@
 
                 <div style="width:130px" x-data="{ poked: false }">
                     <a href="/posts/{{ $post->slug }}"
-                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2"
+                        class="py-2 text-xs font-semibold transition-colors duration-300 bg-gray-200 rounded-full hover:bg-gray-300"
                         :class="poked
                             ? 'px-7 shadow-none'
                             : 'px-8 shadow-lg'"
