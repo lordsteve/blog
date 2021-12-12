@@ -43,16 +43,9 @@
                     </div>
                 </div>
 
-                <div style="width:130px" x-data="{ poked: false }">
+                <div style="width:130px">
                     <a href="/posts/{{ $post->slug }}"
-                        class="py-2 text-xs font-semibold transition-colors duration-300 bg-gray-200 rounded-full hover:bg-gray-300"
-                        :class="poked
-                            ? 'px-7 shadow-none'
-                            : 'px-8 shadow-lg'"
-                        x-on:touchstart="poked = true"
-                        x-on:touchend="poked = false"
-                        x-on:mousedown="poked = true"
-                        x-on:mouseup="poked = false"
+                        class="py-2 text-xs font-semibold transition-colors duration-300 bg-gray-200 rounded-full hover:bg-gray-300 px-8 shadow-lg active:shadow-none active:scale-95 active:translate-y-1"
                     >Read More</a>
                 </div>
             </footer>

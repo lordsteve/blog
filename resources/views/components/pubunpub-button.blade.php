@@ -8,19 +8,12 @@
         @method('PATCH')
 </form>
 
-    <a x-data="{open: false, poked: false, pokedyes: false, pokedno: false}" 
+    <a x-data="{open: false}" 
         href="/admin/posts/{{ $post->id }}/alert/{{ $post->state == 'pub' ? 'draft' : ($post->state == 'draft' ? 'pub' : '') }}"
         x-on:click="open = true"
         form="pubunpub{{ $post->id }}"
-        class="inline-flex text-xs leading-5 font-semibold rounded-full
+        class="inline-flex text-xs leading-5 font-semibold rounded-full px-2 shadow active:shadow-none active:scale-95 active:translate-y-1
             {{ $post->state == 'pub' ? 'bg-green-100 text-green-800' : (
                 $post->state == 'draft' ? 'bg-red-100 text-red-800' : 'bg-purple-100 text-purple-800')  }}"
-        :class="poked
-            ? 'px-1 shadow-none'
-            : 'px-2 shadow'"
-        x-on:touchstart="poked = true"
-        x-on:touchend="poked = false"
-        x-on:mousedown="poked = true"
-        x-on:mouseup="poked = false"
     >{{ $post->state == 'pub' ? 'Published' : (
         $post->state == 'draft' ? 'Draft' : 'Unknown') }}</a>

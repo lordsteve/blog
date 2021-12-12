@@ -42,18 +42,10 @@
                         </h5>
                     </div>
                 </div>
-
-                <div class="hidden lg:block" x-data="{ poked: false }">
+                <div class="hidden lg:block">
                     <a href="/posts/{{ $post->slug }}"
-                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2"
-                        :class="poked
-                            ? 'px-7 shadow-none'
-                            : 'px-8 shadow-lg'"
-                        x-on:touchstart="poked = true"
-                        x-on:touchend="poked = false"
-                        x-on:mousedown="poked = true"
-                        x-on:mouseup="poked = false">Read
-                        More</a>
+                        class="transition-colors duration-300 text-xs font-semibold bg-gray-200 hover:bg-gray-300 rounded-full py-2 px-8 shadow-lg active:shadow active:scale-95 active:translate-y-1"
+                        >Read More</a>
                 </div>
             </footer>
         </div>
