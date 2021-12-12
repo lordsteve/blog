@@ -2,12 +2,12 @@
 
 <article
     {{ $attributes->merge(['class' => 'fade-in transition-colors duration-300 hover:bg-gray-100 rounded-xl hover:shadow-lg']); }}>
-    <div class="py-6 px-5">
+    <div class="px-5 py-6">
         <div>
             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="" class="rounded-xl">
         </div>
 
-        <div class="mt-8 flex flex-col justify-between">
+        <div class="flex flex-col justify-between mt-8">
             <header>
                 <div class="space-x-2">
                     <x-category-button :category="$post->category"/>
@@ -45,7 +45,7 @@
 
                 <div style="width:130px">
                     <a href="/posts/{{ $post->slug }}"
-                        class="py-2 text-xs font-semibold transition-colors duration-300 bg-gray-200 rounded-full hover:bg-gray-300 px-8 shadow-lg active:shadow-none active:scale-95 active:translate-y-1"
+                        class="inline-flex px-8 py-2 text-xs font-semibold transition-colors duration-300 bg-gray-200 rounded-full shadow-lg hover:bg-gray-300 active:shadow-none active:scale-95 active:translate-y-1"
                     >Read More</a>
                 </div>
             </footer>

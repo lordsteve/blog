@@ -1303,8 +1303,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .fade-in {
-    -webkit-animation: fadeInAnimation 1s ease-out 50ms 1;
-    animation: fadeInAnimation 1s ease-out 50ms 1;
+    -webkit-animation: fadeInAnimation 500ms ease-out 50ms 1;
+    animation: fadeInAnimation 500ms ease-out 50ms 1;
     -webkit-animation-fill-mode: forwards;
     animation-fill-mode: forwards;
 }
