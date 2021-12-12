@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes fadeInAnimation {
+    from {
+        -webkit-opacity: 0;
+        opacity: 0;
+        -webkit-transform: translateY(3rem);
+        transform: translateY(3rem);
+    }
+    to {
+        opacity: 1;
+        opacity: 1;
+        transform: translateY(0px);
+        transform: translateY(0px);
+    }
+}
+
+.fade-in {
+    -webkit-animation: fadeInAnimation 3s ease-out 50ms 1;
+    animation: fadeInAnimation 3s ease-out 50ms 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}

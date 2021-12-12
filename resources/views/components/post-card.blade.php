@@ -1,7 +1,7 @@
 @props(['post'])
 
 <article
-    {{ $attributes->merge(['class' => 'transition-colors duration-300 hover:bg-gray-100 border border-black border-opacity-0 hover:border-opacity-5 rounded-xl hover:shadow-lg']); }}>
+    {{ $attributes->merge(['class' => 'fade-in transition-colors duration-300 hover:bg-gray-100 rounded-xl hover:shadow-lg']); }}>
     <div class="py-6 px-5">
         <div>
             <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="" class="rounded-xl">
