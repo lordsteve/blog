@@ -53,3 +53,5 @@ This should actually also act as a pretty good test to see if everything is runn
 That should be it! Right now I'm going to install something I just discovered called [Laravel Valet](https://laravel.com/docs/8.x/valet#installation) which should let me access the blog through https://blog.test instead of https://127.0.0.1. So, if you're following along, do that too. :) 
 
 Have fun!
+
+(EDIT: Nope! Don' do that! Homebrew is not currently supported for Valet! Sorry!)
