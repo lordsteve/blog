@@ -54,4 +54,4 @@ That should be it! Right now I'm going to install something I just discovered ca
 
 Have fun!
 
-(EDIT: Nope! Don' do that! Homebrew is not currently supported for Valet! Sorry!)
+(EDIT: Nope! Don't do that! Homebrew is not currently supported for Valet! Sorry!)
