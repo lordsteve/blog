@@ -1,17 +1,9 @@
 @props(['id'])
 
-<div class="float-right flex w-14 h-14">
-    <a href="/admin/posts/{{ $id }}/edit" class="m-auto">
+<div class="float-right">
+    <a href="/admin/posts/{{ $id }}/edit">
         <img src="/images/edit.svg"
-            x-data="{ poked: false }"
-            class="rounded-full px-4 p-1"
-            :class="poked
-                ? 'bg-gray-400 border-gray-600 border h-5 shadow-md'
-                : 'hover:bg-gray-200 hover:border-gray-400 border border-white h-6 hover:shadow-lg'"
-            x-on:touchstart="poked = true"
-            x-on:touchend="poked = false"
-            x-on:mousedown="poked = true"
-            x-on:mouseup="poked = false"
+            class="inline-flex h-6 p-1 px-4 border border-transparent rounded-full hover:bg-gray-200 hover:border-gray-400 hover:shadow-lg' active:bg-gray-400 active:border-gray-600 active:scale-95 active:translate-y-1 active:shadow-md"
         />
     </a>
 </div>
