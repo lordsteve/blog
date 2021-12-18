@@ -2,4 +2,4 @@
 
 <x-post-featured-card :post="$posts[0]" />
 
-<livewire:posts-grid />
+<livewire:posts-grid :posts="$posts"/>
