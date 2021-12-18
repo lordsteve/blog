@@ -25,6 +25,8 @@ class PostFactory extends Factory
         return [
             'user_id' => $user->id,
             'category_id' => $cat->id,
+            'created_at'=>$this->faker->dateTimeBetween('-2 years' ),
+            'updated_at'=>$this->faker->dateTimeBetween('-2 years' ),
             'title' => $this->faker->sentence,
             'thumbnail' => $randomPic,
             'slug' => $this->faker->slug,
