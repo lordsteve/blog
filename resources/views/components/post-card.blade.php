@@ -1,10 +1,10 @@
 @props(['post'])
 
 <article
-    {{ $attributes->merge(['class' => 'flex flex-col justify-between px-5 py-6 fade-in transition-colors duration-300 hover:bg-gray-100 rounded-xl hover:shadow-lg']); }}>
+    {{ $attributes->merge(['class' => 'flex flex-col hover:border hover:border-black justify-between px-5 py-6 fade-in transition-colors duration-300 hover:bg-gray-100 rounded-xl hover:shadow-lg']); }}>
 
         <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="" class="rounded-xl">
-        
+
         <header class="mt-8">
             <div class="space-x-2">
                 <x-category-button :category="$post->category"/>
