@@ -14,6 +14,13 @@
                 let observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
+                            const queryString = window.location.search;
+                            const params = new URLSearchParams(queryString);
+                            let query = [];
+                            for (const param of params) {
+                                query.push(param);
+                            }
+                            query: @entangle('query');
                             @this.call('loadMore');
                         }
                     })

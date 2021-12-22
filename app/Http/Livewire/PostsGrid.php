@@ -14,6 +14,8 @@ class PostsGrid extends Component
 
     public $hasMorePages;
 
+    public $query = null;
+
     public function mount()
     {
         $this->posts = Post::take(2)->get();
@@ -26,7 +28,9 @@ class PostsGrid extends Component
             return;
         }
 
-        $posts = Post::latest()->where('state', 'pub')->filter(request(['search', 'category', 'author']))->cursorPaginate(
+        $this->query ?? $this->query = request(['search', 'category', 'author']);
+
+        $posts = Post::latest()->where('state', 'pub')->filter($this->query)->cursorPaginate(
             5,
             ['*'],
             'cursor',
@@ -47,9 +51,6 @@ class PostsGrid extends Component
 
     public function render()
     {
-        $posts = $this->posts;
-        return view('livewire.posts-grid', [
-            'posts' => $posts
-        ]);
+        return view('livewire.posts-grid');
     }
 }
