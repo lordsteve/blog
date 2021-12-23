@@ -40,7 +40,7 @@ At this point, you can probably go ahead and clone my blog. Just make sure that 
 
 **But we're not done there.** After following the tutorial for a while I noticed that my editor (VS Code) wasn't showing me all the hints and shortcuts that I was seeing available in the videos I was watching. I learned this was because of the IDE and that I needed to run an IDE helper. So I found one here: [Laravel IE Helper](https://github.com/barryvdh/laravel-ide-helper). To be honest, I don't know whether or not anything will break if you don't install this, but it has been a tremendous help for me in any case.
 
-Eventually I learned about TALL stack. I knew I was using Tailwind, Alpine, and Laravel, but I knew nothing about [Livewire](https://laravel-livewire.com/). So I installed it. I don't think I've used anything from it yet, though. So, again, I don't know if it'll break things or not, but it's there.
+Eventually I learned about TALL stack. I knew I was using Tailwind, Alpine, and Laravel, but I knew nothing about [Livewire](https://laravel-livewire.com/). So I installed it and have used it on a few pages.
 
 Lastly, in the default Laravel install, I found that [Tailwind](https://tailwindcss.com) was implemented through a script in the head tag. I was having a little trouble getting what I wanted out of Tailwind, so I decided to fully download and install it locally to see if I could fix what I was doing. If you go to the [Tailwind Framework Guides](https://tailwindcss.com/docs/installation/framework-guides) and click on the Laravel logo, it'll show you how to do this in a Laravel environment. I'll say it again, I don't know if not having it will break things, but like all the other things I said that about, it definitely wrote some files and ammended some others that were already there, so better safe than sorry.
 
@@ -50,8 +50,6 @@ After alllll that is done, you'll want to fill up the database with some nonsens
 
 This should actually also act as a pretty good test to see if everything is running correctly
 
-That should be it! Right now I'm going to install something I just discovered called [Laravel Valet](https://laravel.com/docs/8.x/valet#installation) which should let me access the blog through https://blog.test instead of https://127.0.0.1. So, if you're following along, do that too. :) 
+That should be it!
 
 Have fun!
-
-(EDIT: Nope! Don't do that! Homebrew is not currently supported for Valet! Sorry!)
